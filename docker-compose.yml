@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+    spark-master:
+        image: bde2020/spark-master
+    spark-worker:
+        image: bde2020/spark-worker
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.6.1
+        expose:
+            - 9200
+        ports:
+            - "9200:9200"
+        environment:
+            - discovery.type=single-node
